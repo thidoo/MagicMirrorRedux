@@ -1,0 +1,32 @@
+.weatherRow {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 1em;
+}
+
+.weatherRow .day{
+    flex: 30%;
+    align-items: left;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.weatherRow .minTemp{
+    flex: 15%;
+    align-items: left;
+    font-size: 1em;
+}
+
+.weatherRow .maxTemp{
+    flex: 15%;
+    align-items: left;
+    font-size: 1em;
+}
+
+.weatherRow .description{
+    flex: 40%;
+    align-items: left;
+    font-size: 1em;
+    font-weight: normal;
+}

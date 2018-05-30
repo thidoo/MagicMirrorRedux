@@ -12,7 +12,6 @@ class CurrentWeatherContainer extends React.Component{
 
   constructor(props) {
     super(props);
-
     this.weatherService = new WeatherService(new HttpClient(), new DataConverter());
   }
 

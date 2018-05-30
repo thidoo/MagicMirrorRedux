@@ -12,11 +12,12 @@ class WeatherService {
       .then(currentWeatherData => currentWeatherData);
   }
 
-  getDailyWeatherList(){
-    let fullDailyWeatherData = this.weatherHttpClient.fetchDailyWeatherData();
-    return this.weatherDataConverter.convertDailyWeatherData(fullDailyWeatherData);
+  getDailyWeatherForecast(){
+    return this.weatherHttpClient.makeDailyWeatherForecastRequest()
+      .then(response => response.json())
+      .then(fullData => this.weatherDataConverter.convertDailyWeatherData(fullData.list))
+      .then(dailyWeatherData => dailyWeatherData);
   }
-
 }
 
 export default WeatherService;
