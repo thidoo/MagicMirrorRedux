@@ -5,7 +5,7 @@ import {fetchCurrentWeatherData} from "./redux/actions";
 import CurrentWeather from './CurrentWeather';
 
 import WeatherService from '../Service/WeatherService';
-import HttpClient from '../Service/HttpClient';
+import WeatherAPI from '../Service/WeatherAPI';
 import DataConverter from '../Service/DataConverter';
 
 const UPDATE_FREQUENCY = 60*1000; // every minute
@@ -14,7 +14,7 @@ class CurrentWeatherContainer extends React.Component{
 
   constructor(props) {
     super(props);
-    this.weatherService = new WeatherService(new HttpClient(), new DataConverter());
+    this.weatherService = new WeatherService(new WeatherAPI(), new DataConverter());
   }
 
   componentDidMount(){

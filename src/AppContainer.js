@@ -6,6 +6,7 @@ import './AppContainer.css';
 import configureStore from './store';
 import WeatherForecastContainer from './Weather/WeatherForecastContainer';
 import CurrentDateTimeContainer from './DateTime/CurrentDateTimeContainer';
+import BitcoinPriceContainer from "./Bitcoin/BitcoinPriceContainer";
 
 const store = configureStore();
 
@@ -21,6 +22,7 @@ class AppContainer extends React.Component {
         <div className='App'>
           <CurrentDateTimeContainer/>
           <WeatherForecastContainer/>
+          <BitcoinPriceContainer/>
         </div>
       </Provider>
     )

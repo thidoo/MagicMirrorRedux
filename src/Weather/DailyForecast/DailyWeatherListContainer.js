@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import {fetchDailyWeatherForecast} from "./redux/actions";
 import WeatherService from '../Service/WeatherService';
-import HttpClient from '../Service/HttpClient';
+import WeatherAPI from '../Service/WeatherAPI';
 import DataConverter from '../Service/DataConverter';
 import DailyWeatherList from "./DailyWeatherList";
 
@@ -13,7 +13,7 @@ class DailyWeatherListContainer extends React.Component{
 
   constructor(props) {
     super(props);
-    this.weatherService = new WeatherService(new HttpClient(), new DataConverter());
+    this.weatherService = new WeatherService(new WeatherAPI(), new DataConverter());
   }
 
   componentDidMount(){
