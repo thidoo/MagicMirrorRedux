@@ -1,0 +1,22 @@
+.CurrentDateTime {
+  flex: 60%;
+  text-align: left;
+  padding-left: 0.5em;
+}
+
+.day {
+  font-size: 30px;
+  font-weight: normal;
+  padding-bottom: 5px;
+}
+
+.date-month-year {
+  font-size: 25px;
+  font-weight: normal;
+  padding-bottom: 10px;
+}
+
+.time {
+  font-size: 80px;
+  font-weight: lighter;
+}

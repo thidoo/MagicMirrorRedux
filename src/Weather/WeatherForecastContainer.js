@@ -2,6 +2,8 @@ import React from 'react';
 
 import CurrentWeatherContainer from './CurrentForecast/CurrentWeatherContainer';
 
+import './WeatherForecastContainer.css';
+
 class WeatherForecastContainer extends React.Component {
 
   constructor(props){
@@ -10,7 +12,7 @@ class WeatherForecastContainer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='WeatherForecast'>
         <CurrentWeatherContainer/>
       </div>
     )

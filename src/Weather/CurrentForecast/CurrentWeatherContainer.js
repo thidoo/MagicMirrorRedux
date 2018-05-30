@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import {fetchCurrentWeatherData} from "./actions";
+import {fetchCurrentWeatherData} from "./redux/actions";
 import CurrentWeather from './CurrentWeather';
 
 import WeatherService from '../Service/WeatherService';

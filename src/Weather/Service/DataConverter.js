@@ -1,4 +1,4 @@
-import buildDay from '../../DateTime/Builder/DayBuilder';
+import buildDay from '../../DateTime/Service/Builder/DayBuilder';
 
 class DataConverter {
 
