@@ -8,16 +8,26 @@ import WeatherService from '../Service/WeatherService';
 import HttpClient from '../Service/HttpClient';
 import DataConverter from '../Service/DataConverter';
 
+const UPDATE_FREQUENCY = 60*1000; // every minute
+
 class CurrentWeatherContainer extends React.Component{
 
   constructor(props) {
     super(props);
-
     this.weatherService = new WeatherService(new HttpClient(), new DataConverter());
   }
 
   componentDidMount(){
     this.props.getCurrentWeatherData(this.weatherService);
+
+    this.timerID = setInterval(
+      () => this.props.getCurrentWeatherData(this.weatherService),
+      UPDATE_FREQUENCY
+    );
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.timerID);
   }
 
   render() {

@@ -20,7 +20,42 @@ class DataConverter {
         "description": this.capitaliseFirstLetter(singleDayData.weather[0].description),
       });
     }
-    return dataList;
+    return this.condenseDailyWeatherData(dataList);
+  }
+
+  // Condense a list of data with repeated days to a list of data with unique days
+  condenseDailyWeatherData(repeatedDayData){
+    let condensedList = [];
+
+    let maxTemp = Number.NEGATIVE_INFINITY;
+    let minTemp = Number.POSITIVE_INFINITY;
+
+    let newDay = repeatedDayData[0];
+
+    for (let singleDay of repeatedDayData){
+
+      if (singleDay.day !== newDay.day){
+        condensedList.push(newDay);
+        newDay = singleDay;
+        maxTemp = singleDay.maxTemp;
+        minTemp = singleDay.minTemp;
+      }
+      else {
+        if (singleDay.maxTemp > maxTemp) {
+          maxTemp = singleDay.maxTemp;
+          newDay.maxTemp = maxTemp;
+        }
+
+        if (singleDay.minTemp < minTemp) {
+          minTemp = singleDay.minTemp;
+          newDay.minTemp = minTemp;
+        }
+      }
+    }
+
+    condensedList.push(newDay);
+
+    return condensedList;
   }
 
   computeDay(fullDateString){
