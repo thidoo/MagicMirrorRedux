@@ -1,5 +1,22 @@
 .App{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.UpperSection{
+    flex: 50%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.LowerSection{
+    flex: 50%;
+    height: 500px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

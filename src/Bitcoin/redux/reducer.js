@@ -17,6 +17,7 @@ function updateCurrentBitcoinPrice(state = initialState, action){
         isFetching: true,
       })
     case RECEIVE_CURRENT_BITCOIN_PRICE:
+      console.log("action payload:", action.currentBitcoinPrice);
       return Object.assign({}, state, {
         isFetching: false,
         currentBitcoinPrice: action.currentBitcoinPrice,

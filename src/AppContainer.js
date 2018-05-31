@@ -19,11 +19,20 @@ class AppContainer extends React.Component {
   render() {
     return (
       <Provider store={store}>
+
         <div className='App'>
-          <CurrentDateTimeContainer/>
-          <WeatherForecastContainer/>
-          <BitcoinPriceContainer/>
+
+          <div className='UpperSection'>
+            <CurrentDateTimeContainer/>
+            <WeatherForecastContainer/>
+          </div>
+
+          <div className='LowerSection'>
+            <BitcoinPriceContainer/>
+          </div>
+
         </div>
+
       </Provider>
     )
   }
