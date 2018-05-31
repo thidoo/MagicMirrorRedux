@@ -1,35 +1,32 @@
 class WeatherService {
-
-  constructor(weatherHttpClient, weatherDataConverter){
+  constructor(weatherHttpClient, weatherDataConverter) {
     this.weatherHttpClient = weatherHttpClient;
     this.weatherDataConverter = weatherDataConverter;
   }
 
-  // getCurrentWeather(){
-  //   return this.transformDataToShorterForm(this.weatherHttpClient.makeCurrentWeatherRequest,
-  //     this.weatherDataConverter.convertCurrentWeatherData);
-  // }
-
-  getCurrentWeather(){
-    return this.weatherHttpClient.makeCurrentWeatherRequest()
-      .then(response => response.json())
-      .then(fullData => this.weatherDataConverter.convertCurrentWeatherData(fullData))
-      .then(currentWeatherData => currentWeatherData);
+  getCurrentWeather() {
+    return this.transformDataToShorterForm(
+      this.weatherHttpClient.makeCurrentWeatherRequest,
+      this.weatherDataConverter.convertCurrentWeatherData
+    );
   }
 
-  getDailyWeatherForecast(){
-    return this.weatherHttpClient.makeDailyWeatherForecastRequest()
-      .then(response => response.json())
-      .then(fullData => this.weatherDataConverter.convertDailyWeatherData(fullData.list))
-      .then(dailyWeatherData => dailyWeatherData);
+  getDailyWeatherForecast() {
+    return this.transformDataToShorterForm(
+      this.weatherHttpClient.makeDailyWeatherForecastRequest,
+      this.weatherDataConverter.convertDailyWeatherData
+    );
   }
 
-  // transformDataToShorterForm(makeAPICall, performDataConversion){
-  //   return makeAPICall()
-  //     .then(response => response.json())
-  //     .then(fullData => function(){performDataConversion(fullData)})
-  //     .then(desiredData => desiredData);
-  // }
+  transformDataToShorterForm(makeAPICall, performDataConversion) {
+    return makeAPICall()
+      .then(response => response.json())
+      .then(fullData => {
+        console.log(fullData);
+        return performDataConversion(fullData);
+      })
+      .then(desiredData => desiredData);
+  }
 }
 
 export default WeatherService;
