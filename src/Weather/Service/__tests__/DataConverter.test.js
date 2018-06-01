@@ -1,10 +1,10 @@
 import DataConverter from "../DataConverter";
-import fullDailyWeatherData from "./fullDailyWeatherTestData";
+import fullDailyWeatherData from "./testData/fullDailyWeatherTestData";
 
-describe("convertCurrentWeatherData", () => {
+describe("#convertCurrentWeatherData", () => {
   const dataConverter = new DataConverter();
 
-  it("shouldReturnDataWithLocationTemperatureDescription", () => {
+  it("should return data with location, temperature, description attributes", () => {
     const fullData = {
       coord: { lon: 144.96, lat: -37.81 },
       weather: [
@@ -51,10 +51,10 @@ describe("convertCurrentWeatherData", () => {
   });
 });
 
-describe("convertDailyWeatherData", () => {
+describe("#convertDailyWeatherData", () => {
   const dataConverter = new DataConverter();
 
-  it("shouldReturnUniqueDailyData", () => {
+  it("should return unique daily data", () => {
     const fullData = fullDailyWeatherData;
 
     const actualResult = dataConverter.convertDailyWeatherData(fullData);

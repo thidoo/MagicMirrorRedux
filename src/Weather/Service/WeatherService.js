@@ -21,10 +21,7 @@ class WeatherService {
   transformDataToShorterForm(makeAPICall, performDataConversion) {
     return makeAPICall()
       .then(response => response.json())
-      .then(fullData => {
-        console.log(fullData);
-        return performDataConversion(fullData);
-      })
+      .then(fullData => performDataConversion(fullData))
       .then(desiredData => desiredData);
   }
 }
