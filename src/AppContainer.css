@@ -1,22 +1,23 @@
-.App{
-    display: flex;
-    flex-direction: column;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+.App {
+  display: flex;
+  flex-direction: column;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.UpperSection{
-    flex: 50%;
+.UpperSection {
+  flex: 50%;
 
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
 }
 
-.LowerSection{
-    flex: 50%;
-    height: 500px;
+.LowerSection {
+  flex: 50%;
+  height: 500px;
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

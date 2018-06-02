@@ -1,5 +1,5 @@
 import DataConverter from "../DataConverter";
-import fullDailyWeatherData from "./testData/fullDailyWeatherTestData";
+import fullDailyWeatherData from "./testData/dailyWeatherTestData";
 
 describe("#convertCurrentWeatherData", () => {
   const dataConverter = new DataConverter();
