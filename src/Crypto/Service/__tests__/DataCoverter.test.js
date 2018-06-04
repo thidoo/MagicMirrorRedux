@@ -6,16 +6,17 @@ describe("#convert", () => {
 
   it("should return data with price, lastUpdated, changeIn24Hours", () => {
     const actualResult = dataConverter.convert(cryptoPriceTestData);
+    const currentTime = new Date();
 
     const expectedResult = {
       bitcoin: {
         price: 9922.81,
-        lastUpdated: 1527832805,
+        lastUpdated: currentTime,
         changeIn24Hours: -88.55000000000109
       },
       ethereum: {
         price: 760.9802988999999,
-        lastUpdated: 1527832805,
+        lastUpdated: currentTime,
         changeIn24Hours: 7.045195099999887
       }
     };

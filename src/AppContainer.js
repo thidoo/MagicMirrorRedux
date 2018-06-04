@@ -7,6 +7,7 @@ import configureStore from "./store";
 import WeatherForecastContainer from "./Weather/WeatherForecastContainer";
 import CurrentDateTimeContainer from "./DateTime/CurrentDateTimeContainer";
 import CryptoPriceContainer from "./Crypto/CryptoPriceContainer";
+import QuoteContainer from "./Quote/QuoteContainer";
 
 const store = configureStore();
 
@@ -25,6 +26,7 @@ class AppContainer extends React.Component {
           </div>
 
           <div className="LowerSection">
+            <QuoteContainer />
             <CryptoPriceContainer />
           </div>
         </div>

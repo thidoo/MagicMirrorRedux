@@ -1,5 +1,5 @@
 .CryptoPrice {
-  flex: auto;
+  flex: 50%;
   height: fit-content;
 
   display: flex;
@@ -28,7 +28,7 @@
 .otherInfo .infoLabels {
   flex: auto;
   margin-right: 1em;
-  padding-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 .otherInfo .values {
