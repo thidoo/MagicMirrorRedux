@@ -1,15 +1,15 @@
 import fetch from "cross-fetch";
 
-class BitcoinAPI {
-  // makeBitcoinPriceRequest(){
+class CryptoAPI {
+  // makeCryptoPriceRequest(){
   //   return fetch('https://api.coindesk.com/v1/bpi/currentprice/AUD.json');
   // }
 
-  makeBitcoinPriceRequest() {
+  makeCryptoPriceRequest = () => {
     return fetch(
       "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH&tsyms=AUD"
     );
-  }
+  };
 }
 
-export default BitcoinAPI;
+export default CryptoAPI;

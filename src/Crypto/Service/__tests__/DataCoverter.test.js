@@ -1,13 +1,11 @@
 import DataConverter from "../DataConverter";
 import cryptoPriceTestData from "./testData/cryptoPriceTestData";
 
-describe("#convertToBitcoinData", () => {
+describe("#convert", () => {
   const dataConverter = new DataConverter();
 
   it("should return data with price, lastUpdated, changeIn24Hours", () => {
-    const actualResult = dataConverter.convertToBitcoinData(
-      cryptoPriceTestData
-    );
+    const actualResult = dataConverter.convert(cryptoPriceTestData);
 
     const expectedResult = {
       bitcoin: {

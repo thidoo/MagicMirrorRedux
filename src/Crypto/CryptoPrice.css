@@ -1,0 +1,36 @@
+.CryptoPrice {
+  flex: auto;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.CryptoPriceItem {
+  flex: auto;
+}
+
+.CryptoPriceItem .price {
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.CryptoPriceItem .otherInfo {
+  font-size: 1em;
+  margin-left: 2em;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.otherInfo .infoLabels {
+  flex: auto;
+  margin-right: 1em;
+  padding-bottom: 1em;
+}
+
+.otherInfo .values {
+  flex: auto;
+}
