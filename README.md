@@ -7,3 +7,5 @@ This is the software implementation of a "Magic Mirror" where a two-way mirror i
 
 [Michael Teeuw's Blog](http://michaelteeuw.nl/post/84026273526/and-there-it-is-the-end-result-of-the-magic) is a great resource to see how such a project would work.
 
+To run the React app, clone or download this repository and run ```yarn start```
+
