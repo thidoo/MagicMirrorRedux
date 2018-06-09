@@ -1,17 +1,27 @@
-import React from 'react';
+import React from "react";
+import Proptypes from "prop-types";
 
-import './CurrentDateTime.css';
+import "./CurrentDateTime.css";
 
 class CurrentDateTime extends React.Component {
-  render(){
+  render() {
+    const { day, date, time } = this.props.value;
     return (
-      <div className='CurrentDateTime'>
-        <div className='day'>{this.props.value.day}</div>
-        <div className='date'>{this.props.value.date}</div>
-        <div className='time'>{this.props.value.time}</div>
+      <div className="CurrentDateTime">
+        <div className="day">{day}</div>
+        <div className="date">{date}</div>
+        <div className="time">{time}</div>
       </div>
     );
   }
 }
 
 export default CurrentDateTime;
+
+CurrentDateTime.proptypes = {
+  value: Proptypes.shape({
+    day: Proptypes.string,
+    date: Proptypes.string,
+    time: Proptypes.string
+  })
+};

@@ -1,22 +1,27 @@
 class WeatherService {
-
-  constructor(weatherHttpClient, weatherDataConverter){
-    this.weatherHttpClient = weatherHttpClient;
+  constructor(weatherAPI, weatherDataConverter) {
+    this.weatherAPI = weatherAPI;
     this.weatherDataConverter = weatherDataConverter;
   }
 
-  getCurrentWeather(){
-    return this.weatherHttpClient.makeCurrentWeatherRequest()
-      .then(response => response.json())
-      .then(fullData => this.weatherDataConverter.convertCurrentWeatherData(fullData))
-      .then(currentWeatherData => currentWeatherData);
+  getCurrentWeather() {
+    return this.transformDataToShorterForm(
+      this.weatherAPI.makeCurrentWeatherRequest,
+      this.weatherDataConverter.convertCurrentWeatherData
+    );
   }
 
-  getDailyWeatherForecast(){
-    return this.weatherHttpClient.makeDailyWeatherForecastRequest()
-      .then(response => response.json())
-      .then(fullData => this.weatherDataConverter.convertDailyWeatherData(fullData.list))
-      .then(dailyWeatherData => dailyWeatherData);
+  getDailyWeatherForecast() {
+    return this.transformDataToShorterForm(
+      this.weatherAPI.makeDailyWeatherForecastRequest,
+      this.weatherDataConverter.convertDailyWeatherData
+    );
+  }
+
+  transformDataToShorterForm(makeAPICall, performDataConversion) {
+    return makeAPICall()
+      .then(fullData => performDataConversion(fullData))
+      .then(desiredData => desiredData);
   }
 }
 
