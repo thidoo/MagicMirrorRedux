@@ -1,4 +1,4 @@
-#root {
+body {
   background-color: black;
   color: white;
   height: 100%;
@@ -23,7 +23,6 @@
 
 .LowerSection {
   flex: 50%;
-  height: 500px;
 
   display: flex;
   flex-direction: column;
