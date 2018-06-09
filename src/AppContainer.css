@@ -15,7 +15,7 @@ body {
 
 .UpperSection {
   flex: 50%;
-  height: 50%;
+  height: 50vh;
 
   display: flex;
   flex-direction: row;

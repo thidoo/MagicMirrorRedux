@@ -12,12 +12,12 @@ class CryptoPrice extends React.Component {
           </div>
           <div className="otherInfo">
             <div className="infoLabels">
-              <div>Last Updated:</div>
-              <div>Change in 24 Hours:</div>
+              <div className="last-updated">Last Updated:</div>
+              <div className="changeIn24Hours">Change in 24 Hours:</div>
             </div>
             <div className="values">
-              <div>{this.props.value.bitcoin.lastUpdated}</div>
-              <div>$ {this.props.value.bitcoin.changeIn24Hours} AUD</div>
+              <div className="last-updated">{this.props.value.bitcoin.lastUpdated}</div>
+              <div className="changeIn24Hours">$ {this.props.value.bitcoin.changeIn24Hours} AUD</div>
             </div>
           </div>
         </div>
@@ -28,12 +28,12 @@ class CryptoPrice extends React.Component {
           </div>
           <div className="otherInfo">
             <div className="infoLabels">
-              <div>Last Updated:</div>
-              <div>Change in 24 Hours:</div>
+              <div className="last-updated">Last Updated:</div>
+              <div className="changeIn24Hours">Change in 24 Hours:</div>
             </div>
             <div className="values">
-              <div>{this.props.value.ethereum.lastUpdated}</div>
-              <div>$ {this.props.value.ethereum.changeIn24Hours} AUD</div>
+              <div className="last-updated">{this.props.value.ethereum.lastUpdated}</div>
+              <div className="changeIn24Hours">$ {this.props.value.ethereum.changeIn24Hours} AUD</div>
             </div>
           </div>
         </div>
