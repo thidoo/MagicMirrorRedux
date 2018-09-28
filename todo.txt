@@ -1,0 +1,8 @@
+- Disable automatic fullscreen in startscript 
+
+- Remove static IP Address
+
+- Download Rpi.GPIO --> run `motion-sensor`.py. 
+
+- Run Docker container for React app
+
