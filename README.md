@@ -36,8 +36,8 @@ This is the software implementation of a "Magic Mirror" where a two-way mirror i
    - The ipaddress of the pi should be listed in the `wlan0` section
    
    * Notes:
-   - I assigned my Raspberry Pi a static ipAddress so that I don't have to fish for it every time I want to ssh into the pi.
-   - This might cause DNS issues when downloading files from terminal, so download everything you need via terminal before assigning the pi a static ipAddress if you wish to avoid headache later on
+      - I assigned my Raspberry Pi a static ipAddress so that I don't have to fish for it every time I want to ssh into the pi.
+      - This might cause DNS issues when downloading files from terminal, so download everything you need via terminal before assigning the pi a static ipAddress if you wish to avoid headache later on
 
 5. Build the docker image. This only needs to be done once, and the image should remain on the pi for future login sessions:
    ```
