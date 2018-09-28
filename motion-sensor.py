@@ -11,7 +11,7 @@ GPIO.setmode(GPIO.BCM)
 INPUT_PIN = 4
 GPIO.setup(INPUT_PIN, GPIO.IN)  # Read output from PIR motion sensor to defined INPUT_PIN
 
-WAIT_TIME = 10 # seconds
+WAIT_TIME = 2*60 # seconds
 SCREEN_ON = 1
 SCREEN_OFF = 0
 
