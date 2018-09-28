@@ -1,6 +1,9 @@
 import RPi.GPIO as GPIO
 import time
 import subprocess
+import os
+import signal
+import sys
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -8,18 +11,24 @@ GPIO.setmode(GPIO.BCM)
 INPUT_PIN = 4
 GPIO.setup(INPUT_PIN, GPIO.IN)  # Read output from PIR motion sensor to defined INPUT_PIN
 
-WAIT_TIME = 60*1000
+WAIT_TIME = 10 # seconds
 SCREEN_ON = 1
 SCREEN_OFF = 0
 
 def isScreenOn():
-  return subprocess.call("vcgencmd hdmi_status_show", shell=True) == SCREEN_ON
+  p = subprocess.Popen(["vcgencmd", "display_power"], stdout=subprocess.PIPE)
+  terminal_output = p.stdout.readline()
+  isOn = "display_power=1" in terminal_output
+
+  p.kill()
+
+  return isOn
 
 def isMotionDetected():
   return GPIO.input(INPUT_PIN)
 
 def turnScreenOnOff(onOffSignal):
-  screenCommandString = "vcgencmd display_power " + str(onOffSignal)
+  screenCommandString = "vcgencmd display_power " + str(onOffSignal) + " >/dev/null"
   subprocess.call(screenCommandString, shell=True)       
  
 # - if screen is already on:
@@ -30,11 +39,13 @@ def turnScreenOnOff(onOffSignal):
 #   --> Motion detected: turn screen on
 #   --> No motion detected: do nothing
 while True:
+  
   if isScreenOn():
-    if not isMotionDetected():
-      startTime = time.time()
-      if time.time() - startTime > WAIT_TIME:
+    startTime = time.time()
+    while not isMotionDetected():
+      if (time.time() - startTime) > WAIT_TIME:
         turnScreenOnOff(SCREEN_OFF)
+
   else:
     if isMotionDetected():
       turnScreenOnOff(SCREEN_ON)
