@@ -20,19 +20,19 @@ SCREEN_OFF = 0
 #   --> Motion detected: turn screen on
 #   --> No motion detected: do nothing
 while True:
-  if isScreenOn:
-    if not isMotionDetected:
+  if isScreenOn():
+    if not isMotionDetected():
       startTime = time.time()
       if time.time() - startTime > WAIT_TIME:
         turnScreenOnOff(SCREEN_OFF)
   else:
-    if isMotionDetected:
+    if isMotionDetected():
       turnScreenOnOff(SCREEN_ON)
 
-def isScreenOn:
+def isScreenOn():
   return subprocess.call("vcgencmd hdmi_status_show", shell=True) == SCREEN_ON
 
-def isMotionDetected:
+def isMotionDetected():
   return GPIO.input(INPUT_PIN)
 
 def turnScreenOnOff(onOffSignal):
